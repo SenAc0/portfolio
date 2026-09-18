@@ -1,0 +1,45 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import ExperienceCard from './ExperienceCard.astro';
+
+
+const experiences = await getCollection( 'experience' );
+
+
+
+---
+<section id="experience" class="mb-8" style = "display: flex; flex-direction: column; align-items: left;">
+
+		<div class="title px-40" style = "display: flex; flex-direction: column; align-items: left; margin-top: 2rem;">
+			<h1 style = "font-size: 2rem; font-weight: bold;">Experiencia</h1>
+		</div>
+
+
+
+
+
+		<section class="experience" style = "display: flex; flex-direction: column; align-items: center;">
+
+			
+			<div class = "grid grid-cols-1">
+
+				{experiences.map((exp: CollectionEntry<'experience'>) => (
+				<ExperienceCard
+					date_start={exp.data.date_start}
+					date_end={exp.data.date_end}
+					company={exp.data.company}
+					role={exp.data.es.role}
+					description={exp.data.es.description}
+				/>
+			))}
+
+
+			</div>
+			
+		</section>
+
+
+
+</section>
+
+

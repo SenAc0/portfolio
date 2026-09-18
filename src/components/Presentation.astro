@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+
+import Button from './Button.astro';
+
+const me_data = await getCollection('me');
+const me = me_data[0]
+---
+<section class="min-h-screen relative flex items-center ">
+
+    <div class="image-container absolute inset-0">
+        <img
+            src="water-2.svg"
+            class="w-full h-full object-cover pointer-events-none select-none"
+            alt=""
+            draggable="false"
+        >
+    </div>
+
+    <div class="absolute text-left pl-16">
+        <h1 class="text-4xl md:text-6xl font-bold text-white">
+            Hola, soy {me.data.name} 
+        </h1>
+
+ 
+
+        <div class="mt-8">
+            <Button text="Ver CV" />
+        </div>
+    </div>
+
+</section>
+

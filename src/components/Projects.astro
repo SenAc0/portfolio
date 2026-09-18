@@ -1,0 +1,34 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+
+const projects = await getCollection( 'projects' );
+
+---
+
+<section id="projects" class="mb-8" style = "display: flex; flex-direction: column;">
+
+		<div class="title px-40" style = "display: flex; flex-direction: column; align-items: left; margin-top: 2rem;">
+			<h1 style = "font-size: 2rem; font-weight: bold;">Proyectos</h1>
+		</div>
+		<section class="projects " style = "display: flex; flex-direction: column; align-items: center;">
+			<div class = "grid gap-6 grid-cols-1">
+
+				{projects.map((project: CollectionEntry<'projects'>, index: number) => (
+				<ProjectCard
+					title={project.data.es.title}
+					year={project.data.year}
+					description={project.data.es.description}
+					orientation={index % 2 === 0}
+				/>
+			))}
+
+
+			</div>
+			
+		</section>
+
+
+</section>
+
+

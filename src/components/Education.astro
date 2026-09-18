@@ -1,0 +1,45 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import EducationCard from './EducationCard.astro';
+
+const education = await getCollection( 'education' );
+
+
+
+
+
+---
+
+<section id="education" class="mb-8" style = "display: flex; flex-direction: column;">
+	
+
+		<div class="title px-40" style = "display: flex; flex-direction: column; align-items: left;">
+			<h1 style = "font-size: 2rem; font-weight: bold;">Educación</h1>
+		</div>
+
+
+
+		<section class="experience" style = "display: flex; flex-direction: row; align-items: left; justify-content: center">
+
+			
+			<div class = "grid grid-cols-1">
+
+				{education.map((edu: CollectionEntry<'education'>) => (
+
+                    <EducationCard 
+                        name={edu.data.name}
+                        date_start={edu.data.date_start}
+                        date_end={edu.data.date_end}
+                        title={edu.data.es.title}
+                    />
+                ))}
+
+
+			</div>
+			
+		</section>
+
+
+</section>
+
+
