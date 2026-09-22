@@ -1,0 +1,14 @@
+- id: me
+  name: Tu nombre
+  lastname: Tu apellido
+  year_old: 0
+  city: Tu ciudad
+  country: Tu país
+  email: tu-email@example.com
+  social:
+    github:
+      username: tu-usuario
+      url: https://github.com/tu-usuario
+    linkedin:
+      username: Tu nombre
+      url: https://www.linkedin.com/in/tu-usuario/

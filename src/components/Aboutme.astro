@@ -4,17 +4,12 @@ const aboutme = await  getCollection('aboutme');
 const about = aboutme[0];
 ---
 
-<section id="aboutme" class="mb-8">
-		<div class="title px-40" style = "display: flex; flex-direction: column; align-items: left; margin-top: 2rem;">
-			<h1 style = "font-size: 2rem; font-weight: bold;">Sobre mí</h1>
-		</div>
-		
-		<section class="about px-40 py-1 " style = "display: flex; flex-direction: column; align-items: left; margin-top: 2rem;">
-            <h1 class="text-lg text-justify ">
-				{about.data.es.description}
-			</h1>
-		</section>
+<section id="aboutme" class="content-section">
+	<div class="section-title">
+		<h1>Sobre mí</h1>
+	</div>
 
+	<div class="section-content">
+		<p>{about.data.es.description}</p>
+	</div>
 </section>
-
-

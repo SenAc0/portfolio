@@ -19,6 +19,18 @@ const aboutme = defineCollection({
     })
 });
 
+const aboutthissite = defineCollection({
+    loader: file('src/content/aboutthissite.yaml'),
+    schema: z.object({
+        es: z.object({
+            description: z.string(),
+        }),
+        en: z.object({
+            description: z.string(),
+        })
+    })
+});
+
 const projects = defineCollection({
     loader: file('src/content/projects.yaml'),
     schema: z.object({
@@ -92,6 +104,6 @@ const me = defineCollection({
 });
 
 
-export const collections = { aboutme, projects, experience, education, me };
+export const collections = { aboutme, aboutthissite, projects, experience, education, me };
     
         

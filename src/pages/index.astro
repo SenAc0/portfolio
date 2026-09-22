@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Presentation from '../components/Presentation.astro';
 import Aboutme from '../components/Aboutme.astro';
+import Aboutthissite from '../components/Aboutthissite.astro';
 import Project from '../components/Projects.astro';
 import Experience from '../components/Experience.astro';
 import Education from '../components/Education.astro';
@@ -16,12 +17,14 @@ import Layout from '../layouts/Layout.astro';
 	<main>
 	<Presentation />
 	<Aboutme />
-	<hr class="mx-16 my-4 border-black">
+	<hr class="section-divider">
 	<Project />
-	<hr class="mx-16 my-4 border-black">
+	<hr class="section-divider">
 	<Experience />
-	<hr class="mx-16 my-4 border-black">
+	<hr class="section-divider">
 	<Education />
+	<hr class="section-divider">
+	<Aboutthissite />
 	</main>
 	<Footer />
 </Layout>

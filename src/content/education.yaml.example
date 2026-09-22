@@ -1,0 +1,8 @@
+- id: institution-degree
+  name: Institución de ejemplo
+  date_start: 01/2022
+  date_end: 12/2026
+  es:
+    title: Título o programa académico
+  en:
+    title: Degree or academic program

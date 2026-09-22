@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+
+const aboutthissite = await getCollection('aboutthissite');
+const about = aboutthissite[0];
+---
+
+<section id="aboutthissite" class="content-section">
+	<div class="section-title">
+		<h1>Sobre este sitio</h1>
+	</div>
+
+	<div class="section-content">
+		<p>{about.data.es.description}</p>
+	</div>
+</section>

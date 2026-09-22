@@ -1,5 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+
+const me_raw = await getCollection('me');
+const me = me_raw[0];
+---
+
 
 
 <footer class="footer" style="display: flex; justify-content: center; align-items: center; padding: 1rem">
-  <p style="margin: 0;">&copy; 2026 Sebastián. Todos los derechos reservados.</p>
+  <p style="margin: 0;">&copy; 2026 {me.data.name}. Código disponible bajo la licencia MIT.</p>
 </footer>

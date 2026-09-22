@@ -1,0 +1,10 @@
+- id: company-role
+  date_start: 01/2026
+  date_end:
+  company: Empresa de ejemplo
+  es:
+    role: Cargo de ejemplo
+    description: Describe aquí tus responsabilidades y logros principales.
+  en:
+    role: Example role
+    description: Describe your main responsibilities and achievements here.

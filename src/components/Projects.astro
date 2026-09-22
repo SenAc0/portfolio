@@ -7,13 +7,12 @@ const projects = await getCollection( 'projects' );
 
 ---
 
-<section id="projects" class="mb-8" style = "display: flex; flex-direction: column;">
-
-		<div class="title px-40" style = "display: flex; flex-direction: column; align-items: left; margin-top: 2rem;">
-			<h1 style = "font-size: 2rem; font-weight: bold;">Proyectos</h1>
+<section id="projects" class="content-section">
+		<div class="section-title">
+			<h1>Proyectos</h1>
 		</div>
-		<section class="projects " style = "display: flex; flex-direction: column; align-items: center;">
-			<div class = "grid gap-6 grid-cols-1">
+		<div class="section-content section-content-centered">
+			<div class="grid gap-6 grid-cols-1">
 
 				{projects.map((project: CollectionEntry<'projects'>, index: number) => (
 				<ProjectCard
@@ -27,10 +26,6 @@ const projects = await getCollection( 'projects' );
 			))}
 
 			</div>
-			
-		</section>
-
-
+		</div>
 </section>
-
 

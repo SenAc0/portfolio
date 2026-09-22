@@ -1,0 +1,5 @@
+- id: aboutthissite
+  es:
+    description: Este sitio es un portafolio personal construido con Astro y Tailwind CSS. Puedes agregar aquí información sobre las tecnologías y decisiones utilizadas.
+  en:
+    description: This site is a personal portfolio built with Astro and Tailwind CSS. Add information about the technologies and decisions used here.

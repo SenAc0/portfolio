@@ -10,18 +10,11 @@ const education = await getCollection( 'education' );
 
 ---
 
-<section id="education" class="mb-8" style = "display: flex; flex-direction: column;">
-	
-
-		<div class="title px-40" style = "display: flex; flex-direction: column; align-items: left;">
-			<h1 style = "font-size: 2rem; font-weight: bold;">Educación</h1>
+<section id="education" class="content-section">
+		<div class="section-title">
+			<h1>Educación</h1>
 		</div>
-
-
-
-		<section class="experience" style = "display: flex; flex-direction: row; align-items: left; justify-content: center">
-
-			
+		<div class="section-content section-content-centered">
 			<div class = "grid grid-cols-1">
 
 				{education.map((edu: CollectionEntry<'education'>) => (
@@ -36,10 +29,6 @@ const education = await getCollection( 'education' );
 
 
 			</div>
-			
-		</section>
-
-
+		</div>
 </section>
-
 
