@@ -1,7 +1,20 @@
 ---
+import { extractDate, MonthNumberToString } from '../utils/date.js';
+
 const { date_start, date_end, company, role, description } = Astro.props;
 
-const date_end_true = date_end ? date_end : 'Presente';
+// get month and year from date_start and date_end, and convert month number to string
+const date_start_parsed = extractDate(date_start);
+
+const month_start = MonthNumberToString(date_start_parsed.month);
+
+
+
+const date_end_parsed = date_end ? extractDate(date_end) : null;
+
+const date_end_true = date_end_parsed ? `${MonthNumberToString(date_end_parsed.month).es}/${date_end_parsed.year}` : 'Presente';
+
+
 ---
 <!-- Recibe props de una experiencia y presenta en formato de tarjeta -->
 <div class="flex">
@@ -14,7 +27,7 @@ const date_end_true = date_end ? date_end : 'Presente';
         <div class="flex justify-between mb-2 gap-8">
 
             <p class="company" style="font-size: 1.10rem; font-weight: bold;">{company}</p>
-            <p class="date" style="font-size: 1.10rem; font-weight: bold;">{date_start} - {date_end_true}</p>    
+            <p class="date" style="font-size: 1.10rem; font-weight: bold;">{month_start.es}/{date_start_parsed.year} - {date_end_true}</p>    
 
         </div>
     

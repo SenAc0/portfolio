@@ -4,6 +4,7 @@ import ProjectCard from './ProjectCard.astro';
 
 const projects = await getCollection( 'projects' );
 
+
 ---
 
 <section id="projects" class="mb-8" style = "display: flex; flex-direction: column;">
@@ -20,9 +21,10 @@ const projects = await getCollection( 'projects' );
 					year={project.data.year}
 					description={project.data.es.description}
 					orientation={index % 2 === 0}
+					slug={project.id}
+					image_logo={project.data.images.logo}
 				/>
 			))}
-
 
 			</div>
 			

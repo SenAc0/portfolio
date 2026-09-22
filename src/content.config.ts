@@ -23,6 +23,9 @@ const projects = defineCollection({
     loader: file('src/content/projects.yaml'),
     schema: z.object({
         year: z.number(),
+        images: z.object({
+            logo: z.string()
+        }),
         es: z.object({
             title: z.string(),
             description: z.string(),

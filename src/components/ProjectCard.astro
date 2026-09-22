@@ -1,13 +1,13 @@
 ---
 import Button from './Button.astro';
 
-const { title, year, description, orientation } = Astro.props;
+const { title, year, description, orientation, slug, image_logo } = Astro.props;
 ---
 <!-- Recibe props de un proyecto y presenta en formato de tarjeta -->
 <div class={orientation ? "flex-row-reverse" : "flex-row"} style="display: flex; max-width: 800px; padding: 64px;">
     
     <div class="image-container  sm:" style="flex: 0 0 200px; max-height: 100px;">
-        <img src={`src/content/images/placeholder.png`} alt={title} style="max-width: 100%; height: auto; border-radius: 4px;" />
+        <img src={image_logo} alt={title} style="max-width: 100%; height: auto; border-radius: 4px;" />
     </div>
 
     <div class="content mx-4" style="flex: 1;">
@@ -18,7 +18,7 @@ const { title, year, description, orientation } = Astro.props;
         <p class="description" style="font-size: 1rem; font-weight: normal; justify-content: justify; text-align: justify; margin-bottom: 32px;">{description}</p>
 
         <div class={orientation ? "flex-row-reverse" : "flex-row"} style="display: flex; justify-content: flex-end;">
-            <Button  text="Ver más"/>
+            <Button  text="Ver más" slug={slug}/>
 
         </div>
         
