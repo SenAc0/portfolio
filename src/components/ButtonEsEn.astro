@@ -1,0 +1,74 @@
+---
+import 'flag-icons/css/flag-icons.min.css';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { useTranslations, toLang, languages } from '../i18n/ui';
+
+const lang = toLang(Astro.currentLocale);
+const t = useTranslations(lang);
+
+const other = lang === 'es' ? 'en' : 'es';
+
+// Ruta actual sin el prefijo de idioma: '/en/project/gooda' -> 'project/gooda'
+const path = Astro.url.pathname.replace(/^\/(es|en)(?=\/|$)/, '').replace(/^\//, '');
+
+// Misma página, en el otro idioma.
+const href = getRelativeLocaleUrl(other, path);
+---
+
+<a
+    href={href}
+    hreflang={other}
+    aria-label={t('a11y.language')}
+    title={languages[other]}
+    class:list={[
+        'lang-toggle relative flex h-8 w-16 items-center justify-between rounded-full bg-white/15 p-1',
+        { 'is-en': lang === 'en' },
+    ]}
+>
+    <span class="knob"></span>
+    <span class="fi fi-es"></span>
+    <span class="fi fi-us"></span>
+</a>
+
+<style>
+    .knob,
+    .fi {
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 9999px;
+        background-size: cover;
+    }
+
+    .knob {
+        position: absolute;
+        left: 0.25rem;
+        background: #fff;
+        transition: transform 0.3s;
+    }
+
+    .fi {
+        position: relative;
+        display: block;
+        opacity: 0.4;
+        transition: opacity 0.3s;
+    }
+
+    /* Estado por defecto: español activo. */
+    .fi-es {
+        opacity: 1;
+    }
+
+    .lang-toggle.is-en .knob {
+        transform: translateX(2rem);
+    }
+    .lang-toggle.is-en .fi-es {
+        opacity: 0.4;
+    }
+    .lang-toggle.is-en .fi-us {
+        opacity: 1;
+    }
+    .lang-toggle:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+    }
+</style>

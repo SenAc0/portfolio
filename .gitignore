@@ -27,5 +27,8 @@ pnpm-debug.log*
 src/content/*
 !src/content/*.yaml.example
 
+# content images (servidas desde public/)
+public/images/
+
 # others
 .vscode/

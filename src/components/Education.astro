@@ -1,18 +1,17 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import EducationCard from './EducationCard.astro';
+import { useTranslations, toLang } from '../i18n/ui';
 
 const education = await getCollection( 'education' );
 
-
-
-
-
+const lang = toLang(Astro.currentLocale);
+const t = useTranslations(lang);
 ---
 
 <section id="education" class="content-section">
 		<div class="section-title">
-			<h1>Educación</h1>
+			<h1>{t('section.education')}</h1>
 		</div>
 		<div class="section-content section-content-centered">
 			<div class = "grid grid-cols-1">
@@ -23,7 +22,7 @@ const education = await getCollection( 'education' );
                         name={edu.data.name}
                         date_start={edu.data.date_start}
                         date_end={edu.data.date_end}
-                        title={edu.data.es.title}
+                        title={edu.data[lang].title}
                     />
                 ))}
 

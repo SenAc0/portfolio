@@ -1,16 +1,16 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import ExperienceCard from './ExperienceCard.astro';
-
+import { useTranslations, toLang } from '../i18n/ui';
 
 const experiences = await getCollection( 'experience' );
 
-
-
+const lang = toLang(Astro.currentLocale);
+const t = useTranslations(lang);
 ---
 <section id="experience" class="content-section">
 		<div class="section-title">
-			<h1>Experiencia</h1>
+			<h1>{t('section.experience')}</h1>
 		</div>
 		<div class="section-content section-content-centered">
 			<div class = "grid grid-cols-1">
@@ -20,8 +20,8 @@ const experiences = await getCollection( 'experience' );
 					date_start={exp.data.date_start}
 					date_end={exp.data.date_end}
 					company={exp.data.company}
-					role={exp.data.es.role}
-					description={exp.data.es.description}
+					role={exp.data[lang].role}
+					description={exp.data[lang].description}
 				/>
 			))}
 

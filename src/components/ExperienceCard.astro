@@ -1,7 +1,11 @@
 ---
 import { extractDate, MonthNumberToString } from '../utils/date.js';
+import { useTranslations, toLang } from '../i18n/ui';
 
 const { date_start, date_end, company, role, description } = Astro.props;
+
+const lang = toLang(Astro.currentLocale);
+const t = useTranslations(lang);
 
 // get month and year from date_start and date_end, and convert month number to string
 const date_start_parsed = extractDate(date_start);
@@ -12,14 +16,14 @@ const month_start = MonthNumberToString(date_start_parsed.month);
 
 const date_end_parsed = date_end ? extractDate(date_end) : null;
 
-const date_end_true = date_end_parsed ? `${MonthNumberToString(date_end_parsed.month).es}/${date_end_parsed.year}` : 'Presente';
+const date_end_true = date_end_parsed ? `${MonthNumberToString(date_end_parsed.month)[lang]}/${date_end_parsed.year}` : t('card.present');
 
 
 ---
 <!-- Recibe props de una experiencia y presenta en formato de tarjeta -->
-<div class="flex">
-    
-    <div class="w-px h-32 bg-black mx-8"></div>
+<div class="flex my-4 mx-2 sm:mx-4">
+
+    <div class="w-px h-32 bg-black mx-4 sm:mx-8"></div>
 
     <div class="content" style="flex: 1;">
         <p class="role" style="font-size: 1.25rem; font-weight: bold; color: #003966;">{role}</p>
@@ -27,10 +31,10 @@ const date_end_true = date_end_parsed ? `${MonthNumberToString(date_end_parsed.m
         <div class="flex justify-between mb-2 gap-8">
 
             <p class="company" style="font-size: 1.10rem; font-weight: bold;">{company}</p>
-            <p class="date" style="font-size: 1.10rem; font-weight: bold;">{month_start.es}/{date_start_parsed.year} - {date_end_true}</p>    
+            <p class="date" style="font-size: 1.10rem; font-weight: bold;">{month_start[lang]}/{date_start_parsed.year} - {date_end_true}</p>    
 
         </div>
     
-        <p class="description" style="font-size: 1rem; font-weight: normal; justify-content: justify; text-align: justify;">{description}</p>
+        <p class="description" style="font-size: 1rem; font-weight: normal;">{description}</p>
     </div>
 </div>

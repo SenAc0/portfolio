@@ -1,15 +1,20 @@
 ---
 import {getCollection} from 'astro:content';
+import { useTranslations, toLang } from '../i18n/ui';
+
 const aboutme = await  getCollection('aboutme');
 const about = aboutme[0];
+
+const lang = toLang(Astro.currentLocale);
+const t = useTranslations(lang);
 ---
 
 <section id="aboutme" class="content-section">
 	<div class="section-title">
-		<h1>Sobre mí</h1>
+		<h1>{t('section.aboutme')}</h1>
 	</div>
 
 	<div class="section-content">
-		<p>{about.data.es.description}</p>
+		<p>{about.data[lang].description}</p>
 	</div>
 </section>

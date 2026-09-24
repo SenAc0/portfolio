@@ -1,24 +1,26 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import ProjectCard from './ProjectCard.astro';
+import { useTranslations, toLang } from '../i18n/ui';
 
 const projects = await getCollection( 'projects' );
 
-
+const lang = toLang(Astro.currentLocale);
+const t = useTranslations(lang);
 ---
 
 <section id="projects" class="content-section">
 		<div class="section-title">
-			<h1>Proyectos</h1>
+			<h1>{t('section.projects')}</h1>
 		</div>
 		<div class="section-content section-content-centered">
 			<div class="grid gap-6 grid-cols-1">
 
 				{projects.map((project: CollectionEntry<'projects'>, index: number) => (
 				<ProjectCard
-					title={project.data.es.title}
+					title={project.data[lang].title}
 					year={project.data.year}
-					description={project.data.es.description}
+					description={project.data[lang].description}
 					orientation={index % 2 === 0}
 					slug={project.id}
 					image_logo={project.data.images.logo}

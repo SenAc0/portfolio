@@ -1,5 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
+import { useTranslations, toLang} from '../i18n/ui';
+
+const lang = toLang(Astro.currentLocale);
+
+const t = useTranslations(lang);
+
 
 import Button from './Button.astro';
 
@@ -10,7 +16,7 @@ const me = me_data[0]
 
     <div class="image-container absolute inset-0">
         <img
-            src="water-2.svg"
+            src="/water-2.svg"
             class="w-full h-full object-cover pointer-events-none select-none"
             alt=""
             draggable="false"
@@ -19,7 +25,7 @@ const me = me_data[0]
 
     <div class="absolute text-left pl-16">
         <h1 class="text-4xl md:text-6xl font-bold text-white">
-            Hola, soy {me.data.name} 
+            {t('nav.presentation')}{me.data.name} 
         </h1>
 
  
@@ -33,7 +39,7 @@ const me = me_data[0]
                 aria-label="LinkedIn"
                 title="LinkedIn"
             >
-                <img src="/linkedin.svg" alt="" class="w-7 h-7">
+                <img src="/linkedin.svg" alt="" class="w-9 h-9">
             </a>
             <a
                 href={me.data.social.github.url}
@@ -42,10 +48,10 @@ const me = me_data[0]
                 aria-label="GitHub"
                 title="GitHub"
             >
-                <img src="/github.svg" alt="" class="w-7 h-7">
+                <img src="/github.svg" alt="" class="w-9 h-9">
             </a>
             <div class="">
-                <Button text="Ver CV" />
+                <Button text={t('presentation.cv')} />
             </div>
         </div>
     </div>

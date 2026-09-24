@@ -1,17 +1,22 @@
 ---
 import '../styles/global.css';
+import { useTranslations, toLang } from '../i18n/ui';
+
+const lang = toLang(Astro.currentLocale);
+const t = useTranslations(lang);
 ---
 
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Sebastian Avila</title>
+		<title>{t('meta.title')}</title>
+		<meta name="description" content={t('meta.description')} />
 	</head>
 	<body>
 		<slot />

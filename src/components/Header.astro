@@ -1,11 +1,23 @@
 
 
-<header class="fixed top-4 left-1/2 z-10 -translate-x-1/2 p-4 rounded-lg shadow-md bg-[#003966]">
+---
+import ButtonEsEn from './ButtonEsEn.astro';
+import { useTranslations, toLang } from '../i18n/ui';
+
+const lang = toLang(Astro.currentLocale);
+const t = useTranslations(lang);
+---
+
+<header class="hidden sm:flex fixed top-4 left-1/2 z-10 -translate-x-1/2 p-4 rounded-lg shadow-md bg-[#003966]">
     <div class="flex justify-between items-center gap-4">
-        <a href="#aboutme" class="text-gray-200 hover:underline font-bold">INICIO</a>
-        <a href="#projects" class="text-gray-200 hover:underline font-bold">PROYECTOS</a>
-        <a href="#experience" class="text-gray-200 hover:underline font-bold">EXPERIENCIA</a>
-        <a href="#education" class="text-gray-200 hover:underline font-bold">EDUCACIÓN</a>
-        <a href="#aboutthissite" class="text-gray-200 hover:underline font-bold">SITIO</a>
+        <a href="#aboutme" class="text-gray-200 hover:underline font-bold">{t('nav.home')}</a>
+        <a href="#projects" class="text-gray-200 hover:underline font-bold">{t('nav.projects')}</a>
+        <a href="#experience" class="text-gray-200 hover:underline font-bold">{t('nav.experience')}</a>
+        <a href="#education" class="text-gray-200 hover:underline font-bold">{t('nav.education')}</a>
+        <a href="#aboutthissite" class="text-gray-200 hover:underline font-bold">{t('nav.site')}</a>
+        <div class="ml-4">
+            <ButtonEsEn />
+        </div>
+  
     </div>    
 </header>
