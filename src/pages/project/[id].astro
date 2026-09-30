@@ -1,14 +1,28 @@
 ---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Header from '../../components/Header.astro';
+import ProjectDetail from '../../components/ProjectDetail.astro';
+import Footer from '../../components/Footer.astro';
+import Layout from '../../layouts/Layout.astro';
 
+// Una ruta por proyecto de la colección, para no mantener la lista a mano.
+export async function getStaticPaths() {
+	const projects = await getCollection('projects');
 
-
-export function getStaticPaths() {
-  return [
-    { params: { id: "me" } },
-    { params: { id: "gooda" } },
-    { params: { id: "ifime" } },
-    { params: { id: "beassistant" } },
-    { params: { id: "titu" } },
-  ];
+	return projects.map((project: CollectionEntry<'projects'>) => ({
+		params: { id: project.id },
+		props: { project },
+	}));
 }
+
+const { project } = Astro.props;
 ---
+
+<Layout>
+	<Header />
+
+	<main>
+		<ProjectDetail project={project} />
+	</main>
+	<Footer />
+</Layout>

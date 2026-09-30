@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { useTranslations, toLang } from '../i18n/ui';
+
+interface Props {
+    project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+
+const lang = toLang(Astro.currentLocale);
+const t = useTranslations(lang);
+
+const { title, description } = project.data[lang];
+
+// Vuelve al listado de proyectos del mismo idioma: '/#projects' o '/en/#projects'.
+const backHref = `${getRelativeLocaleUrl(lang, '')}#projects`;
+---
+<!-- Detalle de un proyecto: recibe la entrada de la colección y la muestra completa -->
+<section class="content-section">
+    <div class="section-title">
+        <a href={backHref} class="text-[#003966] font-bold hover:underline">{t('project.back')}</a>
+    </div>
+
+    <div class="section-content">
+        <img
+            src={project.data.images.logo}
+            alt={title}
+            style="max-width: 100%; max-height: 120px; width: auto; height: auto; border-radius: 4px; margin-bottom: 1.5rem;"
+        />
+
+        <h1 style="margin: 0; font-size: 2rem; font-weight: 700;">{title}</h1>
+
+        <p style="font-size: 1.20rem; font-weight: bold; color: #003966;">{project.data.year}</p>
+
+        <p>{description}</p>
+    </div>
+</section>

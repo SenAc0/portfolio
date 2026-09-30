@@ -41,6 +41,9 @@ export const ui = defineUi({
     'card.more': 'Ver más',
     'card.present': 'Presente',
 
+    // Detalle de proyecto
+    'project.back': '← Volver a proyectos',
+
     // Footer
     'footer.license': 'Código disponible bajo la licencia MIT.',
 
@@ -75,6 +78,9 @@ export const ui = defineUi({
     // Cards
     'card.more': 'See more',
     'card.present': 'Present',
+
+    // Project detail
+    'project.back': '← Back to projects',
 
     // Footer
     'footer.license': 'Code available under the MIT license.',

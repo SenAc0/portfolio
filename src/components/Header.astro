@@ -2,19 +2,24 @@
 
 ---
 import ButtonEsEn from './ButtonEsEn.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { useTranslations, toLang } from '../i18n/ui';
 
 const lang = toLang(Astro.currentLocale);
 const t = useTranslations(lang);
+
+// Las secciones viven en la home, así que las anclas se prefijan con ella
+// ('/' o '/en/') para que el menú también funcione desde una subpágina.
+const home = getRelativeLocaleUrl(lang, '');
 ---
 
 <header class="hidden sm:flex fixed top-4 left-1/2 z-10 -translate-x-1/2 p-4 rounded-lg shadow-md bg-[#003966]">
     <div class="flex justify-between items-center gap-4">
-        <a href="#aboutme" class="text-gray-200 hover:underline font-bold">{t('nav.home')}</a>
-        <a href="#projects" class="text-gray-200 hover:underline font-bold">{t('nav.projects')}</a>
-        <a href="#experience" class="text-gray-200 hover:underline font-bold">{t('nav.experience')}</a>
-        <a href="#education" class="text-gray-200 hover:underline font-bold">{t('nav.education')}</a>
-        <a href="#aboutthissite" class="text-gray-200 hover:underline font-bold">{t('nav.site')}</a>
+        <a href={`${home}#aboutme`} class="text-gray-200 hover:underline font-bold">{t('nav.home')}</a>
+        <a href={`${home}#projects`} class="text-gray-200 hover:underline font-bold">{t('nav.projects')}</a>
+        <a href={`${home}#experience`} class="text-gray-200 hover:underline font-bold">{t('nav.experience')}</a>
+        <a href={`${home}#education`} class="text-gray-200 hover:underline font-bold">{t('nav.education')}</a>
+        <a href={`${home}#aboutthissite`} class="text-gray-200 hover:underline font-bold">{t('nav.site')}</a>
         <div class="ml-4">
             <ButtonEsEn />
         </div>
