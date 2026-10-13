@@ -1,10 +1,13 @@
 - id: project-example
   year: 2026
   images:
-    logo: /favicon.svg
+    -id: logo
+    src: /favicon.svg
   es:
     title: Proyecto de ejemplo
-    description: Descripción breve del proyecto, sus objetivos y las tecnologías utilizadas.
+    description-brief: Descripción breve del proyecto, sus objetivos y las tecnologías utilizadas.
+    description-long: Descripción larga del proyecto, sus objetivos y las tecnologías utilizadas.
   en:
     title: Example project
-    description: Short description of the project, its goals and the technologies used.
+    description-brief: Short description of the project, its goals and the technologies used.
+    description-long: Long description of the project, its goals and the technologies used.

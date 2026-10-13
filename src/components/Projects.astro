@@ -20,10 +20,10 @@ const t = useTranslations(lang);
 				<ProjectCard
 					title={project.data[lang].title}
 					year={project.data.year}
-					description={project.data[lang].description}
+					description={project.data[lang].description_brief}
 					orientation={index % 2 === 0}
 					slug={project.id}
-					image_logo={project.data.images.logo}
+					image_logo={project.data.images.find((img) => img.id === 'logo')?.src || ''}
 				/>
 			))}
 
