@@ -1,5 +1,3 @@
-
-
 ---
 import ButtonEsEn from './ButtonEsEn.astro';
 import { getRelativeLocaleUrl } from 'astro:i18n';
@@ -24,5 +22,11 @@ const home = getRelativeLocaleUrl(lang, '');
             <ButtonEsEn />
         </div>
   
-    </div>    
+    </div>
 </header>
+
+<!-- En móvil el header se oculta, así que el cambio de idioma vive en un
+     botón flotante para que siga estando a un solo toque. -->
+<div class="sm:hidden fixed top-4 right-4 z-10 p-2 rounded-full shadow-md bg-[#003966]">
+    <ButtonEsEn />
+</div>
