@@ -27,6 +27,14 @@ pnpm-debug.log*
 src/content/*
 !src/content/*.yaml.example
 
+# los proyectos son Markdown en carpetas por idioma; git no deja reincluir un
+# archivo si su carpeta padre está excluida, así que hay que ir nivel por nivel
+!src/content/projects/
+src/content/projects/*
+!src/content/projects/*/
+src/content/projects/*/*
+!src/content/projects/*/*.md.example
+
 # content images (servidas desde public/)
 public/images/
 

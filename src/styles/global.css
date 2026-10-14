@@ -55,3 +55,75 @@
   color: #003966;
   font-weight: bold;
 }
+
+/*
+ * HTML generado por Markdown (la descripción larga de un proyecto).
+ * Tailwind resetea márgenes, listas y encabezados, así que hay que devolverlos
+ * aquí: ese HTML lo escribe Astro y no puede llevar estilos inline.
+ */
+.markdown-content > * + * {
+    margin-top: 1.25rem;
+}
+
+.markdown-content p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+.markdown-content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.markdown-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.markdown-content strong {
+    font-weight: 700;
+}
+
+.markdown-content a {
+    color: #003966;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+    padding-left: 1.5rem;
+}
+
+.markdown-content ul {
+    list-style: disc;
+}
+
+.markdown-content ol {
+    list-style: decimal;
+}
+
+.markdown-content li + li {
+    margin-top: 0.5rem;
+}
+
+/* Las capturas: ancho completo de la columna, sin desbordar en móvil. */
+.markdown-content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.markdown-content code {
+    background: #f1f1f1;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.95em;
+}
+
+.markdown-content blockquote {
+    border-left: 4px solid #003966;
+    padding-left: 1rem;
+    color: #444;
+}

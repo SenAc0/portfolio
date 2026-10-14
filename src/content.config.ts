@@ -1,7 +1,6 @@
 import { defineCollection} from 'astro:content';
 import { z } from 'zod';
-import { file } from 'astro/loaders'
-import { date, email } from 'astro:schema';
+import { file, glob } from 'astro/loaders'
 
 
 
@@ -32,23 +31,12 @@ const aboutthissite = defineCollection({
 });
 
 const projects = defineCollection({
-    loader: file('src/content/projects.yaml'),
+    loader: glob({ base: 'src/content/projects', pattern: '**/*.md' }),
     schema: z.object({
+        title: z.string(),
         year: z.number(),
-        images: z.array(z.object({
-            id: z.string(),
-            src: z.string()
-        })),
-        es: z.object({
-            title: z.string(),
-            description_brief: z.string(),
-            description_long: z.string(),
-        }),
-        en: z.object({
-            title: z.string(),
-            description_brief: z.string(),
-            description_long: z.string(),
-        })
+        description_brief: z.string(),
+        logo: z.string(),
     })
 });
 

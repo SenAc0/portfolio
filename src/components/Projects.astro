@@ -1,12 +1,12 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
 import ProjectCard from './ProjectCard.astro';
 import { useTranslations, toLang } from '../i18n/ui';
-
-const projects = await getCollection( 'projects' );
+import { getProjects, projectSlug, type Project } from '../utils/projects';
 
 const lang = toLang(Astro.currentLocale);
 const t = useTranslations(lang);
+
+const projects = await getProjects(lang);
 ---
 
 <section id="projects" class="content-section">
@@ -16,18 +16,17 @@ const t = useTranslations(lang);
 		<div class="section-content section-content-centered">
 			<div class="grid gap-6 grid-cols-1">
 
-				{projects.map((project: CollectionEntry<'projects'>, index: number) => (
+				{projects.map((project: Project, index: number) => (
 				<ProjectCard
-					title={project.data[lang].title}
+					title={project.data.title}
 					year={project.data.year}
-					description={project.data[lang].description_brief}
+					description={project.data.description_brief}
 					orientation={index % 2 === 0}
-					slug={project.id}
-					image_logo={project.data.images.find((img) => img.id === 'logo')?.src || ''}
+					slug={projectSlug(project)}
+					image_logo={project.data.logo}
 				/>
 			))}
 
 			</div>
 		</div>
 </section>
-

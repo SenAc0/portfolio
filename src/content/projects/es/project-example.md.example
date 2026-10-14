@@ -1,0 +1,25 @@
+---
+title: Proyecto de ejemplo
+year: 2026
+description_brief: Descripción breve del proyecto, que es la que aparece en la tarjeta del inicio.
+logo: /images/projects/ejemplo/logo.png
+---
+
+El cuerpo de este archivo es la descripción larga, la que se ve en la página de
+detalle. Se escribe en Markdown, así que admite **negritas**, [enlaces](https://example.com),
+listas y capturas de pantalla.
+
+![Pantallas principales de la aplicación](/images/projects/ejemplo/pantallas.png)
+
+Las imágenes se guardan en `public/images/projects/<proyecto>/` y se referencian
+con una ruta absoluta, que empieza con `/`.
+
+## Un subtítulo, si el texto es largo
+
+- Un punto de una lista.
+- Otro punto.
+
+Para que el proyecto exista hace falta **el mismo archivo en los dos idiomas**:
+`src/content/projects/es/<slug>.md` y `src/content/projects/en/<slug>.md`. Si
+falta uno, el build falla a propósito y dice cuál. El nombre del archivo es el
+slug de la URL: `project-example.md` se publica en `/project/project-example`.
